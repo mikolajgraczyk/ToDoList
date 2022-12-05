@@ -28,7 +28,7 @@
             htmlString += `
             <li class="list__element">
                 <button class="js-done list__button list__button--done">✔</button>
-                <div class=" ${task.done ? "list__element--done" : ""}">${task.content}</div>
+                <span class=" ${task.done ? "list__element--done" : ""}">${task.content}</span>
                 <button class="js-remove list__button list__button--remove">🗑</button>
             </li>
             `;
