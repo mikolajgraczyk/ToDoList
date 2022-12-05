@@ -5,3 +5,9 @@ html {
 *, ::after, ::before {
     box-sizing: inherit;
 }
+
+.body {
+    background-color: #ccc;
+    font-family: arial;
+    margin: 0 auto;
+}
