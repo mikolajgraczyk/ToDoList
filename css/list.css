@@ -6,15 +6,32 @@
 
 .list__element {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 2fr 1fr auto;
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
 
-.list__element--done {
-    text-decoration: line-through;
+@media(max-width: 563px) {
+    .list__element {
+        grid-template-columns: auto 7fr 6fr auto;
+    }
+}
+
+.list__time {
+    font-size: 11px;
+    text-align: center;
+    border: 1px solid #ccc;
+    max-width: 140px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+@media(max-width: 563px) {
+    .list__time {
+       font-size: 9px;
+    }
 }
 
 .list__button {
