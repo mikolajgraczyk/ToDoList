@@ -1,14 +1,5 @@
 {
-    let tasks = [
-        {
-            content: "Zjeść kolacje",
-            done: false,
-        },
-        {
-            content: "Wyjść na spacer",
-            done: true,
-        },
-    ];
+    let tasks = [];
 
     let hideDone = false;
 
