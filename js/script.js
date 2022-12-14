@@ -2,6 +2,7 @@
     let tasks = [];
 
     let hideDone = false;
+    let sorted = false;
 
     const bindEvents = () => {
         const doneButtons = document.querySelectorAll(".js-done");
@@ -24,9 +25,11 @@
     const bindButtonsEvents = () => {
         const hideDoneButton = document.querySelector(".js-hideDoneButton");
         const completeAllButton = document.querySelector(".js-completeAllButton");
+        const sortButton = document.querySelector(".js-sortButton");
 
         hideDoneButton.addEventListener("click", hideDoneTasks);
         completeAllButton.addEventListener("click", completeAllTasks);
+        sortButton.addEventListener("click", sort);
     };
 
     const renderTasks = () => {
@@ -47,15 +50,19 @@
 
     const renderButtons = () => {
         let buttonsHtmlString = "";
-
         buttonsHtmlString = `
-        <button class="js-hideDoneButton section__taskButtons--button 
-        ${tasks.length === 0 ? "hidden" : ""}">
-        ${hideDone === true ? "Pokaż ukończone" : "Ukryj ukończone"}
-        </button>
-        <button ${tasks.every(({ done }) => done) ? "disabled" : ""} class="js-completeAllButton section__taskButtons--button 
-        ${tasks.length === 0 ? "hidden" : ""}">Ukończ wszystkie</button>
-        `;
+                <button class="js-sortButton section__taskButtons--button ${tasks.length === 0 ? "hidden" : ""}">
+                ${sorted === false ? "Sortuj od najnowszych" : "Sortuj od najstarszych"}
+                </button>
+
+                <button class="js-hideDoneButton section__taskButtons--button 
+                ${tasks.length === 0 ? "hidden" : ""}">
+                ${hideDone === true ? "Pokaż ukończone" : "Ukryj ukończone"}
+                </button>
+
+                <button ${tasks.every(({ done }) => done) ? "disabled" : ""} class="js-completeAllButton section__taskButtons--button ${tasks.length === 0 ? "hidden" : ""}">Ukończ wszystkie
+                </button>
+                `;
         document.querySelector(".js-taskButtons").innerHTML = buttonsHtmlString;
     };
 
@@ -74,33 +81,35 @@
 
         if (newTaskContent === "") {
             return;
-        } else {
-            addNewTask(newTaskContent);
-            newTaskInput.value = "";
-            render();
-        };
-
-
+        }
+        addNewTask(newTaskContent);
+        newTaskInput.value = "";
+        render();
     };
 
     const getTime = () => {
-        const d = new Date();
-        let hour = addZero(d.getHours());
-        let minute = addZero(d.getMinutes());
+        const date = new Date();
+        let hour = addZero(date.getHours());
+        let minute = addZero(date.getMinutes());
 
         return `${hour}:${minute}`;
     };
 
-    const addZero = number => {
-        if (number < 10) {
-            return `0${number}`
-        }
-        return number;
-    }
-
-    console.log(getTime());
+    const addZero = number => number < 10 ? `0${number}` : number;
 
     const addNewTask = (newTaskContent) => {
+        if (sorted === false) {
+            tasks = [
+                {
+                    content: newTaskContent,
+                    done: false,
+                    time: getTime()
+                },
+                ...tasks
+            ];
+            return;
+        };
+
         tasks = [
             ...tasks,
             {
@@ -131,6 +140,12 @@
 
     const completeAllTasks = () => {
         tasks = tasks.map(task => task.done === false ? { ...task, done: true } : task);
+        render();
+    };
+
+    const sort = () => {
+        sorted = !sorted;
+        tasks = tasks.sort((a, b) => tasks.indexOf(b) - tasks.indexOf(a));
         render();
     };
 
