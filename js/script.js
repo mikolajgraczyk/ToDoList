@@ -29,7 +29,7 @@
 
         hideDoneButton.addEventListener("click", hideDoneTasks);
         completeAllButton.addEventListener("click", completeAllTasks);
-        sortButton.addEventListener("click", sort);
+        sortButton.addEventListener("click", sortTasks);
     };
 
     const renderTasks = () => {
@@ -52,7 +52,7 @@
         let buttonsHtmlString = "";
         buttonsHtmlString = `
                 <button class="js-sortButton section__taskButtons--button ${tasks.length === 0 ? "hidden" : ""}">
-                ${sorted === false ? "Sortuj od najnowszych" : "Sortuj od najstarszych"}
+                ${sorted === false ? "Sortuj od najstarszych" : "Sortuj od najnowszych"}
                 </button>
 
                 <button class="js-hideDoneButton section__taskButtons--button 
@@ -143,7 +143,7 @@
         render();
     };
 
-    const sort = () => {
+    const sortTasks = () => {
         sorted = !sorted;
         tasks = tasks.sort((a, b) => tasks.indexOf(b) - tasks.indexOf(a));
         render();
