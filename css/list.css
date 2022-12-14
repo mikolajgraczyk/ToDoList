@@ -19,6 +19,10 @@
     }
 }
 
+.list__element--done {
+    text-decoration: line-through;
+}
+
 .list__time {
     font-size: 11px;
     text-align: center;
