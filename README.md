@@ -1,7 +1,7 @@
 # Description
 You're looking at a to-do-list created by newbie to practice JS and CSS.
 
-![example](https://github.com/scudoo/ToDoList/blob/main/images/example.jpg?raw=true)
+![example](https://github.com/scudoo/ToDoList/blob/main/images/To%20do%20List%20xample.gif?raw=true)
 
 # Technologies used in project
 - html
