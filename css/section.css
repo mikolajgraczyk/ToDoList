@@ -13,9 +13,45 @@
     font-size: 20px;
     padding: 20px;
     margin: 0;
+}
+
+.section__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-bottom: 1px solid rgb(226, 226, 226);
 }
 
-.section__content {
+@media(max-width: 767px) {
+    .section__top {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section__taskButtons {
     padding: 20px;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+@media(max-width: 767px) {
+    .section__taskButtons {
+        flex-direction: column;
+    }
+}
+
+.section__taskButtons--button {
+    border: none;
+    background: none;
+    color: teal;
+    transition: 0.5s;
+}
+
+.section__taskButtons--button:hover {
+    color: hsl(180, 100%, 35%);
+}
+
+.section__taskButtons--button:disabled {
+    color: gray;
 }

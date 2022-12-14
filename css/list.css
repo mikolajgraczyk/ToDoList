@@ -1,3 +1,9 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .list__element {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -18,26 +24,24 @@
     padding: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .list__button--done {
     background-color: green;
-}
-
-.list__button--done:hover {
-    background-color: rgb(1, 145, 1);
-}
-
-.list__button--done:active {
-    background-color: rgb(0, 167, 0);
+    transition: 0.5s;
 }
 
 .list__button--remove {
     background-color: rgb(168, 0, 0);
+    transition: 0.5s;
+}
+
+.list__button--done:hover {
+    background-color: hsl(120, 100%, 35%);
 }
 
 .list__button--remove:hover {
-    background-color: rgb(190, 0, 0);
-}
-
-.list__button--remove:active {
-    background-color: rgb(218, 0, 0);
+    background-color: hsl(0, 100%, 60%);
 }
