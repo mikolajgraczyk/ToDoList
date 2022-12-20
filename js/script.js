@@ -37,7 +37,7 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class="${hideDone === true & task.done ? "hidden" : ""} list__element">
+            <li class="${hideDone & task.done ? "hidden" : ""} list__element">
                 <button class="js-done list__button list__button--done">${task.done ? "✔" : ""}</button>
                 <span class="${task.done ? "list__element--done" : ""}">${task.content}</span>
                 <span class="js-timeAdded list__time">Dodano o godzinie: ${task.time}</span>
