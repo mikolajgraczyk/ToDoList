@@ -3,6 +3,9 @@ You're looking at a to-do-list created by newbie to practice JS and CSS. You can
 
 ![example](https://github.com/scudoo/ToDoList/blob/main/images/To%20do%20List%20xample.gif?raw=true)
 
+# Demo 
+https://mikolajgraczyk.github.io/ToDoList/
+
 # Technologies used in project
 - html
 - css
